@@ -131,3 +131,19 @@ int main() {
     printf("\n");
 	return 0;
 }
+
+
+/*
+Expected Output:
+---------------
+InOrder: 9 10 15 20 30 40 
+
+After Deleting 10:
+InOrder: 9 15 20 30 40 
+
+After Deleting 9:
+InOrder: 15 20 30 40 
+
+After Deleting 30:
+InOrder: 15 20 40 
+*/
