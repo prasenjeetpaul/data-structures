@@ -93,13 +93,39 @@ struct TreeNode* insert(struct TreeNode *root, int data) {
     }
 }
 
-void inorder(struct TreeNode* root) {
+/**
+ * Inorder Traversal
+ */
+void inOrder(struct TreeNode* root) {
     if(root != NULL) {
-        inorder(root->left);
+        inOrder(root->left);
         printf("%d ", root->treeData);
-        inorder(root->right);
+        inOrder(root->right);
     }
 }
+
+/**
+ * Post Order Traversal
+ */
+void preOrder(struct TreeNode* root) {
+    if(root != NULL) {
+        printf("%d ", root->treeData);
+        preOrder(root->left);
+        preOrder(root->right);
+    }
+}
+
+/**
+ * Post Order Traversal
+ */
+void postOrder(struct TreeNode* root) {
+    if(root != NULL) {
+        postOrder(root->left);
+        postOrder(root->right);
+        printf("%d ", root->treeData);
+    }
+}
+
 
 /**
  * Level Order Traversal 
@@ -125,10 +151,16 @@ int main() {
 	root = insert(root, 15);
 	root = insert(root, 30);
 	root = insert(root, 25);
-	printf("Inorder: \t");
-	inorder(root);
+	printf("Inorder: ");
+	inOrder(root);
 	printf("\n");
-	printf("Level Order: \t");
+	printf("Preorder: ");
+	preOrder(root);
+	printf("\n");
+	printf("Postorder: ");
+	postOrder(root);
+	printf("\n");
+	printf("Level Order: ");
 	levelOrder(root);
 	printf("\n");
 	return 0;
@@ -137,7 +169,8 @@ int main() {
 /*
 Expected Output:
 ---------------
-Inorder: 	9 10 15 20 25 30 
-Level Order: 	20 10 30 9 15 25 
+Inorder: 9 10 15 20 25 30 
+Preorder: 20 10 9 15 30 25 
+Postorder: 9 15 10 25 30 20 
+Level Order: 20 10 30 9 15 25  
 */
-
