@@ -91,7 +91,7 @@ void nMaxHelper(struct TreeNode* root, int *index, int n)
 {
 	if (root == NULL) return;
     nMaxHelper(root->right, index, n);
-	// if current element is k'th smallest, return its value
+	// if current element is n'th smallest, return its value
 	(*index)++;
 	if (*index == n) {
 	    printf("%d Max: %d\n", n, root->treeData);

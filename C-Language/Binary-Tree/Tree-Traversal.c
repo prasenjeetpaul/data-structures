@@ -15,10 +15,10 @@ struct QueueNode {
  * Logic of Queue
  */
 struct QueueNode* createQueueNode(struct TreeNode *data) {
-        struct QueueNode *newNode = (struct QueueNode*)malloc(sizeof(struct QueueNode));
-        newNode->data = data;
-        newNode->next = NULL;
-        return newNode;
+    struct QueueNode *newNode = (struct QueueNode*)malloc(sizeof(struct QueueNode));
+    newNode->data = data;
+    newNode->next = NULL;
+    return newNode;
 }
 
 void enQueue(struct TreeNode *data) {
@@ -144,26 +144,26 @@ void levelOrder(struct TreeNode *root) {
 
 
 int main() {
-	struct TreeNode *root = NULL;
-	root = insert(root, 20);
-	root = insert(root, 10);
-	root = insert(root, 9);
-	root = insert(root, 15);
-	root = insert(root, 30);
-	root = insert(root, 25);
-	printf("Inorder: ");
-	inOrder(root);
-	printf("\n");
-	printf("Preorder: ");
-	preOrder(root);
-	printf("\n");
-	printf("Postorder: ");
-	postOrder(root);
-	printf("\n");
-	printf("Level Order: ");
-	levelOrder(root);
-	printf("\n");
-	return 0;
+    struct TreeNode *root = NULL;
+    root = insert(root, 20);
+    root = insert(root, 10);
+    root = insert(root, 9);
+    root = insert(root, 15);
+    root = insert(root, 30);
+    root = insert(root, 25);
+    printf("Inorder: ");
+    inOrder(root);
+    printf("\n");
+    printf("Preorder: ");
+    preOrder(root);
+    printf("\n");
+    printf("Postorder: ");
+    postOrder(root);
+    printf("\n");
+    printf("Level Order: ");
+    levelOrder(root);
+    printf("\n");
+    return 0;
 }
 
 /*
