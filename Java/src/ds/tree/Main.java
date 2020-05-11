@@ -31,5 +31,13 @@ public class Main {
 		TreeView.printLeftView(tree.getRoot());
 		System.out.println();
 		TreeView.printRightView(tree.getRoot());
+		
+		System.out.println();
+		System.out.println("Top View: ");
+		TreeView.printTopView(tree.getRoot());
+		
+		System.out.println();
+		System.out.println("Bottom View: ");
+		TreeView.printBottomView(tree.getRoot());
 	}
 }
