@@ -66,12 +66,12 @@ public class TreeUtil {
 	 * R A L R D R A A L A R R
 	 * @return	Root Node of the created tree
 	 */
+	@SuppressWarnings("unchecked")
 	public static Node<Character> createTreeWithLevelOrderInput() {
 		Scanner in = new Scanner(System.in);
 		int n = in.nextInt();
-	
-		@SuppressWarnings("unchecked")
-		Node<Character> arr[] = new Node[n+1];
+
+		Node<Character> arr[] = new Node[(int)Math.pow(2, n+1)-1];
 		
 		for(int i=0; i<n; i++) {
 			char parent = in.next().charAt(0);
