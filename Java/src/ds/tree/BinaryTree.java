@@ -1,8 +1,8 @@
 package ds.tree;
 
-public interface BinaryTree {
+public interface BinaryTree<T> {
 
-	public Node getRoot();
+	public Node<T> getRoot();
 	public void insert(int data);
 	public void delete(int data);
 

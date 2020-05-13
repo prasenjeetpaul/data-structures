@@ -1,12 +1,12 @@
 package ds.tree;
 
-public class Node {
+public class Node<T> {
 
-	int data;
-	Node left;
-	Node right;
+	T data;
+	Node<T> left;
+	Node<T> right;
 	
-	public Node(int data) {
+	public Node(T data) {
 		this.data = data;
 		this.left = null;
 		this.right = null;

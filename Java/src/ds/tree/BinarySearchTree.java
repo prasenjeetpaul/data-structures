@@ -1,20 +1,20 @@
 package ds.tree;
 
-public class BinarySearchTree implements BinaryTree {
+public class BinarySearchTree implements BinaryTree<Integer> {
 
-	private Node root;
+	private Node<Integer> root;
 	
 	public BinarySearchTree() {
 		this.root = null;
 	}
 
 	@Override
-	public Node getRoot() {
+	public Node<Integer> getRoot() {
 		return this.root;
 	}
 
-	private Node insertIntoTree(Node root, int data) {
-		if(root ==  null) return new Node(data);
+	private Node<Integer> insertIntoTree(Node<Integer> root, int data) {
+		if(root ==  null) return new Node<Integer>(data);
 		if(data < root.data) {
 			root.left = insertIntoTree(root.left, data);
 		} else {
@@ -28,7 +28,7 @@ public class BinarySearchTree implements BinaryTree {
 		this.root = insertIntoTree(this.root, data);
 	}
 	
-	private Node deleteFromTree(Node root, int data) {
+	private Node<Integer> deleteFromTree(Node<Integer> root, int data) {
 		if(root == null) return null;
 		
 		if(data < root.data) {

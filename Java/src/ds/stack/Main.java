@@ -12,6 +12,15 @@ public class Main {
 		System.out.println("Min Value: " + stack.getMin());
 		stack.pop();
 		System.out.println("Min Value: " + stack.getMin());
+		
+		CustomStack customStack = new CustomStack();
+		customStack.push(10);
+		customStack.push(20);
+		customStack.push(30);
+		customStack.push(40);
+		customStack.push(50);
+		customStack.push(60);
+        Solution.printStack(Solution.deleteMiddle(customStack));
 	}
 
 }

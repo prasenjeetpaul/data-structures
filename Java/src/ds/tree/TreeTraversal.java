@@ -5,39 +5,40 @@ import java.util.Queue;
 
 public class TreeTraversal {
 
-	public static void inOrder(Node root) {
+	public static void inOrder(Node<?> root) {
 		if(root == null) return;
 		inOrder(root.left);
 		System.out.print(root.data + " ");
 		inOrder(root.right);
 	}
 	
-	public static void preOrder(Node root) {
+	public static void preOrder(Node<?> root) {
 		if(root == null) return;
 		System.out.print(root.data + " ");
-		inOrder(root.left);
-		inOrder(root.right);
+		preOrder(root.left);
+		preOrder(root.right);
 	}
 	
-	public static void postOrder(Node root) {
+	public static void postOrder(Node<?> root) {
 		if(root == null) return;
-		inOrder(root.left);
-		inOrder(root.right);
+		postOrder(root.left);
+		postOrder(root.right);
 		System.out.print(root.data + " ");
 	}
 	
 
-	public static void levelOrder(Node root) {
+	public static void levelOrder(Node<?> root) {
 		if(root == null) return;
 		
-		Queue<Node> queue = new LinkedList<Node>();
+		Queue<Node<?>> queue = new LinkedList<Node<?>>();
 		queue.add(root);
 		
 		while(!queue.isEmpty()) {
-			Node node = queue.poll();
+			Node<?> node = queue.poll();
 			System.out.print(node.data + " ");
 			if(node.left != null) queue.add(node.left);
 			if(node.right != null) queue.add(node.right);
 		}
 	}
+
 }
