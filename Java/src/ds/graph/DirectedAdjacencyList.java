@@ -4,25 +4,23 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class AdjacencyList implements Graph<Integer> {
-
-	private List<List<Integer>> list;
+public class DirectedAdjacencyList implements Graph<Integer> {
+private List<List<Integer>> list;
 	
-	public AdjacencyList(int noOfVertex) {
+	public DirectedAdjacencyList(int noOfVertex) {
 		this.list = new ArrayList<List<Integer>>(noOfVertex);
 		for(int i=0; i<noOfVertex; i++) {
 			this.list.add(new ArrayList<Integer>());
 		}
 	}
 	
-	public List<List<Integer>> getMatrix() {
+	public List<List<Integer>> getGraph() {
 		return this.list;
 	}
 	
 	@Override
 	public void addEdge(Integer src, Integer dest) {
 		this.list.get(src).add(dest);
-		this.list.get(dest).add(src);
 	}
 	
 	@Override
@@ -30,12 +28,6 @@ public class AdjacencyList implements Graph<Integer> {
 		for(int i=0; i<this.list.get(src).size(); i++) {
 			if(this.list.get(src).get(i) == dest) {
 				this.list.get(src).remove(i);
-				break;
-			}
-		}
-		for(int i=0; i<this.list.get(dest).size(); i++) {
-			if(this.list.get(dest).get(i) == src) {
-				this.list.get(dest).remove(i);
 				break;
 			}
 		}
@@ -53,5 +45,4 @@ public class AdjacencyList implements Graph<Integer> {
 		}
 		
 	}
-	
 }

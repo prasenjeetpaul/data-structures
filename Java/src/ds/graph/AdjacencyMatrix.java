@@ -1,9 +1,5 @@
 package ds.graph;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
-
 /**
  * Implementation of Undirected Unweighted Graph using
  * Adjacency Matrix
@@ -14,6 +10,10 @@ public class AdjacencyMatrix implements Graph<Integer>{
 	
 	public AdjacencyMatrix(int noOfvertex) {
 		this.matrix = new boolean[noOfvertex][noOfvertex];
+	}
+	
+	public boolean[][] getGraph() {
+		return this.matrix;
 	}
 	
 	@Override
@@ -43,44 +43,5 @@ public class AdjacencyMatrix implements Graph<Integer>{
 			System.out.println();
 		}
 	}
-	
-	public void printDFS(int startIndex) {
-		boolean[] visited = new boolean[this.matrix.length];
-		Stack<Integer> stack = new Stack<Integer>();
-		
-		stack.push(startIndex);
-		visited[startIndex] = true;
 
-		while(!stack.empty()) {
-			int curr = stack.pop();
-			System.out.print(curr + "-> ");
-			for(int i=this.matrix[curr].length-1; i>=0; i--) {
-				if(this.matrix[curr][i] && !visited[i]) {
-					stack.push(i);
-					visited[i] = true;
-				}
-			}
-			
-		}
-	}
-	
-	public void printBFS(int startIndex) {
-		boolean[] visited = new boolean[this.matrix.length];
-		Queue<Integer> queue = new LinkedList<Integer>();
-		
-		queue.add(startIndex);
-		visited[startIndex] = true;
-
-		while(!queue.isEmpty()) {
-			int curr = queue.remove();
-			System.out.print(curr + "-> ");
-			for(int i=0; i<this.matrix[curr].length; i++) {
-				if(this.matrix[curr][i] && !visited[i]) {
-					queue.add(i);
-					visited[i] = true;
-				}
-			}
-			
-		}
-	}
 }
