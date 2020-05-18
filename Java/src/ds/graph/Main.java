@@ -44,7 +44,10 @@ public class Main {
 		
 		
 		maxNoOfPathsTest();
-		
+
+		System.out.println("-------------------");
+		System.out.println("Connected Component Test:");
+		printConnectedComponentTest();
 	}
 	
 	private static void maxNoOfPathsTest() {
@@ -60,6 +63,19 @@ public class Main {
 		directedList.addEdge(4, 5);
 		directedList.addEdge(5, 3);
 		System.out.println("Max no. of paths from 1 to 3: " + Solution.maxNoOfRoutes(directedList.getGraph(), 1, 3));
+	}
+	
+	private static void printConnectedComponentTest() {
+		AdjacencyMatrix graph = new AdjacencyMatrix(6);
+		
+		graph.addEdge(0, 1);
+		graph.addEdge(0, 2);
+		graph.addEdge(0, 3);
+		graph.addEdge(1, 2);
+		graph.addEdge(4, 5);
+		
+		Solution.printConnectedComponent(graph.getGraph());
+		
 	}
 	
 
