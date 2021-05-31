@@ -12,7 +12,7 @@ public class InsertionSort implements SortAlgorithm {
 			
 			//Changing values of left sub array
 			while(j>=0 && arr[j] > value) {
-				arr[j] = arr[j+1];
+				arr[j+1] = arr[j];
 				j--;
 			}
 			
