@@ -1,5 +1,6 @@
 package algorithm.dp;
 
+import java.text.DecimalFormat;
 import java.util.Arrays;
 
 public class Knapsack {
@@ -9,27 +10,43 @@ public class Knapsack {
 		int weight[] = {1, 4, 2, 3, 8, 7};
 		
 		printTestCase(weight, profit, 10);
+		
+		int profit1[] = {20, 1, 18, 2, 25, 4, 15, 10, 8, 9, 11, 17, 21, 19};
+		int weight1[] = {5, 3, 2, 1, 4, 2, 2, 8, 5, 5, 3, 7, 9, 5};
+		
+		printTestCase(weight1, profit1, 25);
 	}
 	
 	private static void printTestCase(int weight[], int profit[], int capacity) {
+		System.out.println("----------------------------");
+		System.out.println("----------------------------");
 		System.out.println("Weight: " + Arrays.toString(weight));
 		System.out.println("Profit: " + Arrays.toString(profit));
 		System.out.println();
 
 		long startTime = System.nanoTime();
 		System.out.println("Max Profit of " + capacity + ": " + maxProfitBruteForce(weight, profit, capacity));
-		System.out.println("Time elapsed Brute Force: " + (System.nanoTime() - startTime));
+		System.out.println("Time elapsed Brute Force: " + getFormattedNumber(System.nanoTime() - startTime));
 		System.out.println();
 		
 		startTime = System.nanoTime();
 		System.out.println("Max Profit of " + capacity + ": " + maxProfitDPTopDown(weight, profit, capacity));
-		System.out.println("Time elapsed DP Top Down: " + (System.nanoTime() - startTime));
+		System.out.println("Time elapsed DP Top Down: " + getFormattedNumber(System.nanoTime() - startTime));
 		System.out.println();
 		
 		startTime = System.nanoTime();
 		System.out.println("Max Profit of " + capacity + ": " + maxProfitDPBottomUP(weight, profit, capacity));
-		System.out.println("Time elapsed DP Bottom Up: " + (System.nanoTime() - startTime));
+		System.out.println("Time elapsed DP Bottom Up: " + getFormattedNumber(System.nanoTime() - startTime));
 		System.out.println();
+		System.out.println("----------------------------");
+		System.out.println("----------------------------");
+	}
+	
+	private static String getFormattedNumber(long number) {
+		String pattern = "###,###.###";
+		DecimalFormat decimalFormat = new DecimalFormat(pattern);
+
+		return decimalFormat.format(number);
 	}
 	
 	public static int maxProfitBruteForce(int weight[], int profit[], int capacity) {
